@@ -1,4 +1,4 @@
-package test;
+package c.inheritance;
 
 public class MemberDTO {
 	public String name, phone, email;
