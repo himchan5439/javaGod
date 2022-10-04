@@ -5,7 +5,8 @@ public class StringCheck {
 		StringCheck sample = new StringCheck();
 
 		String addresses[] = new String[] { "서울시 구로구 신도림동", "경기도 성남시 분당구 정자동 개발 공장", "서울시 구로구 개봉동" };
-		sample.checkLastIndexOf();
+		
+		sample.internCheck();
 	}
 
 	private void checkAddresse(String[] addresses) {
@@ -64,6 +65,61 @@ public class StringCheck {
 		System.out.println(text.lastIndexOf('a', 20));
 		System.out.println(text.lastIndexOf("a ", 20));
 		System.out.println(text.lastIndexOf('z'));
+	}
+	
+	public void checkSubstring(){
+		String text = "java technology";
+		String technology = text.substring(5);
+		System.out.println(technology);
+		
+		String tech = text.substring(5, 9);
+		System.out.println(tech);
+	}
+	
+	public void checkSplit() {
+		String text = "Java technology is both a programming languge and a platform.";
+		String[] splitArray = text.split(" ");
+		for(String temp:splitArray) {
+			System.out.println(temp);
+		}
+	}
+	
+	public void checkTrim() {
+		String strings[] = new String[] {
+			" a", " b ", "    c", "d   ", "e  ", "  f  ", "       "	
+		};
+		
+		for(String string:strings) {
+			System.out.println("[" + string + "] ");
+			System.out.println("[" + string.trim() + "] ");
+		}
+	}
+	
+	public void checkReplace() {
+		String text = "The String class represents character strings.";
+		System.out.println(text.replace('s', 'z'));
+		System.out.println(text);
+		System.out.println(text.replace("tring", "trike"));
+		System.out.println(text.replaceAll(" ", "|"));
+		System.out.println(text.replaceFirst(" ", "|"));
+	}
+	
+	public void checkFormat() {
+		String text = "제 이름은 %s입니다. 지금까지 %d 권의 책을 썼고, "
+				+ "하루에 %f %%의 시간을 책을 쓰는데 할애하고 있습니다";
+		String realText = String.format(text, "이상민", 7, 10.5);
+//		String realText = String.format(text, "이상민", 7);
+		System.out.println(realText);
+	}
+	
+	public void internCheck() {
+		String text1 = "Java Basic";
+		String text2 = "Java Basic";
+		String text3 = new String("Java Basic");
+		text3 = text3.intern();
+		System.out.println(text1 == text2);
+		System.out.println(text1 == text3);
+		System.out.println(text1.equals(text3));
 	}
 
 }
